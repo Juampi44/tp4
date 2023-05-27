@@ -6,7 +6,7 @@ def encontrar_mcd(a, b):
 
 def simplificar(num, den):
     if den == 0:
-        # genera una excepción manualmente
+ #raise genera una excepción manualmente
         raise ValueError("El denominador no puede ser cero.")
     mcd = encontrar_mcd(num, den)
     return num // mcd, den // mcd
