@@ -16,17 +16,45 @@ while prender == "on":
             resultado_final_sum = str(input("ingresar = para imprimir resultado: "))
             if resultado_final_sum == "=":
                 print("total de suma es:", total_suma)
+
         if cuenta == "RES":
             if len(lista_funcion_clasica) > 0:
                 total_resta = lista_funcion_clasica[0]
                 for num in lista_funcion_clasica[1:]:
                     total_resta -= num
 
-                resultado_final_resta = str(input("Ingrese '=' para imprimir resultado: "))
+                resultado_final_resta = str(input("ingresar = para imprimir resultado: "))
                 if resultado_final_resta == "=":
-                    print("El total de la resta es:", total_resta)
+                    print("total de resta es:", total_resta)
             else:
-                print("La lista está vacía.")
+                print("lista vacia")
+        elif cuenta == "MUL":
+            if len(lista_funcion_clasica) > 0:
+                total_multiplicacion = 1
+                for num in lista_funcion_clasica:
+                    total_multiplicacion *= num
+
+                resultado_final_multiplicacion = str(input("ingresar = para imprimir resultado: "))
+                if resultado_final_multiplicacion == "=":
+                    print("total de multiplicación es:", total_multiplicacion)
+            else:
+                print("lista vacia")
+
+        elif cuenta == "DIV":
+            if len(lista_funcion_clasica) > 0:
+                total_division = lista_funcion_clasica[0]
+                for num in lista_funcion_clasica[1:]:
+                    if num != 0:
+                        total_division /= num
+                    else:
+                        print("No se puede dividir por cero.")
+                        break
+
+                resultado_final_division = str(input("ingresar = para imprimir resultado: "))
+                if resultado_final_division == "=":
+                    print("total de division es:", total_division)
+            else:
+                print("lista vacia")
 
 
 
