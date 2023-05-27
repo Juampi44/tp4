@@ -6,6 +6,7 @@ def encontrar_mcd(a, b):
 
 def simplificar(num, den):
     if den == 0:
+# genera una excepción manualmente 
         raise ValueError("El denominador no puede ser cero.")
     mcd = encontrar_mcd(num, den)
     return num // mcd, den // mcd
@@ -13,8 +14,8 @@ def simplificar(num, den):
 
 
 def sumar(fracciones):
-    #  En cada iteración suma acumulando de los numeradores multiplicados por los denominadores comunes
-    # y actualiza el denominador común multiplicándolo por el denominador de la fracción actual.
+ #  En cada iteración suma acumulando de los numeradores multiplicados por los denominadores comunes
+ # y actualiza el denominador común multiplicándolo por el denominador de la fracción actual.
     num_suma = 0
     den_comun = 1
     for fraccion in fracciones:
@@ -62,20 +63,21 @@ def opciones(opcion):
 # acá se inicia la lista vacia  de fracciones
     while opcion != "salir":
         if opcion == "suma" or opcion == "resta" or opcion == "multiplicacion" or opcion == "division":
-            ## verifica que se ingrese una opción válida 
+ # verifica que se ingrese una opción válida 
             try:
-                #acá manejamos las expeciones, si todo es correcto se llama 
-                # a ingresar fracción para que el usuario ingrese un valor y se guarda en fracción
+ #acá manejamos las expeciones, si todo es correcto se llama 
+ # a ingresar fracción para que el usuario ingrese un valor y se guarda en fracción
                 fraccion = ingresarFraccion()
-                # el metodo append ingresa una fraccion dentro de la lista vacia
+ # el metodo append ingresa una fraccion dentro de la lista vacia
                 fracciones.append(fraccion)
-                #si el valor es invalido se muestra un error, convierte error en un bloque de texto 
+ #si el valor es invalido se muestra un error, convierte error en un bloque de texto 
             except ValueError as error:
                 print(str(error))
         elif opcion == "salir":
             break
         else:
             print("Opción inválida. Intente nuevamente.")
+            #realiza las operaciones y recibe la lista de fracciones para operar
         if opcion == "suma":
             resultado = sumar(fracciones)
             print(f"Resultado de la suma: {resultado[0]}/{resultado[1]}")
