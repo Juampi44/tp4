@@ -76,9 +76,11 @@ while prender == "on":
 
         def simplificar(num, den):
             if den == 0:
+                 #raise genera una excepción manualmente
                 raise ValueError("El denominador no puede ser cero.")
             mcd = encontrar_mcd(num, den)
             return num // mcd, den // mcd
+        # se crean listas para almacenar las fracciones y luego operar
 
         def sumar(fracciones):
     #  En cada iteración suma acumulando de los numeradores multiplicados por los denominadores comunes 
@@ -122,18 +124,24 @@ while prender == "on":
 
         def opciones(opcion):
             fracciones = []
-
+        # acá se inicia la lista vacia  de fracciones
             while opcion != "salir":
                 if opcion == "suma" or opcion == "resta" or opcion == "multiplicacion" or opcion == "division":
+                    # verifica que se ingrese una opción válida
                     try:
+                        # acá manejamos las expeciones, si todo es correcto se llama
+                        # a ingresar fracción para que el usuario ingrese un valor y se guarda en fracción
                         fraccion = ingresarFraccion()
+                        # el metodo append ingresa una fraccion dentro de la lista vacia
                         fracciones.append(fraccion)
+                         # si el valor es invalido se muestra un error, convierte error en un bloque de texto
                     except ValueError as error:
                         print(str(error))
                 elif opcion == "salir":
                     break
                 else:
                     print("Opción inválida. Intente nuevamente.")
+                    # realiza las operaciones y recibe la lista de fracciones para operar
                 if opcion == "suma":
                     resultado = sumar(fracciones)
                     print(f"Resultado de la suma y/o la simplificación es: {resultado[0]}/{resultado[1]}")
@@ -154,7 +162,7 @@ while prender == "on":
 
 
 
-
+#----------------------------------------->---------------------------------
 
         
 
