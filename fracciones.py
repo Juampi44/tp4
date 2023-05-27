@@ -27,11 +27,9 @@ def sumar(fracciones):
 def restar(fracciones):
     num_resta = 0
     den_comun = 1
-
     for fraccion in fracciones:
         num_resta = num_resta * fraccion[1] - fraccion[0] * den_comun
         den_comun *= fraccion[1]
-
     return simplificar(num_resta, den_comun)
 
 
@@ -41,7 +39,6 @@ def multiplicar(fracciones):
     for fraccion in fracciones:
         num_prod *= fraccion[0]
         den_prod *= fraccion[1]
-
     return simplificar(num_prod, den_prod)
 
 
@@ -80,17 +77,17 @@ def opciones(opcion):
             # realiza las operaciones y recibe la lista de fracciones para operar
         if opcion == "suma":
             resultado = sumar(fracciones)
-            print(f"Resultado de la suma: {resultado[0]}/{resultado[1]}")
+            print(f"Resultado de la suma y/o la simplificación es: {resultado[0]}/{resultado[1]}")
         elif opcion == "resta":
             resultado = restar(fracciones)
-            print(f"Resultado de la resta: {resultado[0]}/{resultado[1]}")
+            print(f"Resultado de la resta y/o la simplificación es: {resultado[0]}/{resultado[1]}")
         elif opcion == "multiplicacion":
             resultado = multiplicar(fracciones)
             print(
-                f"Resultado de la multiplicación: {resultado[0]}/{resultado[1]}")
+                f"Resultado de la multiplicación y/o la simplificación es: {resultado[0]}/{resultado[1]}")
         elif opcion == "division":
             resultado = dividir(fracciones)
-            print(f"Resultado de la división: {resultado[0]}/{resultado[1]}")
+            print(f"Resultado de la división y/o la simplificación es: {resultado[0]}/{resultado[1]}")
 
         opcion = input(
             "Ingrese una operación (suma, resta, multiplicacion, division) o 'salir' para terminar: ")
