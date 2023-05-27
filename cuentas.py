@@ -1,57 +1,48 @@
 prender = str(input("Ingrese 'on' para iniciar: "))
 while prender == "on":
-    numeros = 0
-    funcion = int(input("ingrese que tipo de calculadora (1 clasica, 2 fracciones, 3 conversion, 4 para salir(off)): "))
+    funcion = int(input("ingresar tipo de calculadora desea utilizar (1 clásica, 2 fracciones, 3 conversión, 4 para salir (off)): "))
     if funcion == 1:
-        num1 = float(input("Ingrese el primer número: "))
-        num2 = float(input("Ingrese el segundo número: "))
-        operacion = input("Ingrese qué operación desea realizar (suma, resta, multiplicacion, division): ")
-        if operacion == "suma":
-            resultado_final_clasica = input("ingrese = para imprimir resultado: ")
-            resultado_suma = num1 + num2
-            print(f"su resultado es: " , resultado_suma)
-        elif operacion == "resta":
-            resultado_final_clasica = input("ingrese = para imprimir resultado: ")
-            resultado_resta = num1 - num2
-            print(f"su resultado es: " , resultado_resta)
-        elif operacion == "multiplicacion":
-            resultado_final_clasica = input("ingrese = para imprimir resultado: ")
-            resultado_multiplicacion = num1 * num2
-            print(f"su resultado es: " , resultado_multiplicacion)
-        elif operacion == "division":
-            if num2 == 0:
-                print("Error, el segundo número no puede ser 0")
-            else:
-                resultado_final_clasica = input("ingrese = para imprimir resultado: ")
-                resultado_division = num1 // num2
-                print(f"su resultado es: " , resultado_division)
+        lista_funcion_clasica = []
+        numeros_funcion_clasica = float(input("Ingresar numero (o 0 para terminar): "))
+        while numeros_funcion_clasica != 0:
+            lista_funcion_clasica.append(numeros_funcion_clasica)
+            numeros_funcion_clasica = float(input("Ingresar numero (o 0 para terminar): "))
+        cuenta = input("ingresar tipo de cuenta (SUM para suma, RES para resta, MUL para multiplicacion, DIV para division): ")
+        if cuenta == "SUM":
+            total_suma = 0
+            for num in lista_funcion_clasica:
+                total_suma += num
+            
+            resultado_final_sum = str(input("ingresar = para imprimir resultado: "))
+            if resultado_final_sum == "=":
+                print("total de suma es:", total_suma)
+        if cuenta == "RES":
+            if len(lista_funcion_clasica) > 0:
+                total_resta = lista_funcion_clasica[0]
+                for num in lista_funcion_clasica[1:]:
+                    total_resta -= num
 
-        # numero_extra = str(input("desea seguir agregando numeros SI o = para imprimir resultado: "))
-        # if numero_extra == "SI":
-        #     numeros += 1
-        #     numero = float(input("ingrese el numero {} de su operacion: " .format(numeros)))
-        #     operacion = input("Ingrese qué operación desea realizar (suma, resta, multiplicacion, division) o ingrese 0 para terminar: ")
-        #     if operacion == "suma":
-        #         print("Su resultado es:", num1 + num2 + numero)
-        #     elif operacion == "resta":
-        #         print("Su resultado es:", num1 - num2 - numero)
-        #     elif operacion == "multiplicacion":
-        #         print("Su resultado es:", num1 * num2 * numero)
-        #     elif operacion == "division":
-        #         if num2 == 0:
-        #             print("Error, el segundo número no puede ser 0")
-        #     else:
-        #         print("Su resultado es:", num1 / num2 / numero)
-        # if numero_extra == "=":
-        #     print("finalizo")
-    #funcion 3 conversion
+                resultado_final_resta = str(input("Ingrese '=' para imprimir resultado: "))
+                if resultado_final_resta == "=":
+                    print("El total de la resta es:", total_resta)
+            else:
+                print("La lista está vacía.")
+
+
+
+
+
+
+        
+
+    # funcion 3 conversion
     elif funcion == 3:
         conversion = str(input("ingrese el tipo de conversion que desea (BI para binario, HEX para hexadecimal, OCT para octal): "))
         if conversion == "BI":
             numero = input("ingrese numero: ")
             #error si el numero ingresado es mayor a 4 digitos
             if len(numero) > 4:
-                print("El número ingresado no es válido.")
+                print("numero ingresado no es válido.")
             else:
                 numero = int(numero)
                 digitos_binarios = []  # Lista para los dígitos binarios
@@ -65,8 +56,8 @@ while prender == "on":
 
                 resultado_bi = input("ingrese = para finalizar: ")
                 if resultado_bi == "=":
-                    print(f"El número en binario es: {resultado}")
-                break
+                    print(f"numero en binario es: {resultado}")
+                
 
     #--------------------------><----------------------------------------
         elif conversion == "HEX":
@@ -95,16 +86,16 @@ while prender == "on":
                 resultado = ''.join(reversed(hexadecimales))
                 resultado_hex = input("ingrese = para finalizar: ")
                 if resultado_hex == "=":
-                    print(f"El número en hexadecimal es: {resultado}")
-                break
+                    print(f"numero en hexadecimal es: {resultado}")
+                
 
     #---------------------------><---------------------------------------
         elif conversion == "OCT":
-            numero = input("Ingrese un número decimal: ")
+            numero = input("ingrese numero decimal: ")
             numero_octal = ""
             #error si el numero ingresado es mayor a 4 digitos
             if len(numero) > 4:
-                print("El número ingresado no es válido.")
+                print("numero ingresado no es válido.")
             else:
                 numero = int(numero)
                 while numero > 0:
@@ -114,8 +105,8 @@ while prender == "on":
             
             resultado_oct = input("ingrese = para finalizar: ")
             if resultado_oct == "=":
-                print(f"El número en octal es:", numero_octal)
-            break
+                print(f"nmero en octal es:", numero_octal)
+            
     
     elif funcion == 4:
         print("apagado")
