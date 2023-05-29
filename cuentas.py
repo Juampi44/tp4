@@ -1,18 +1,18 @@
 #variable para iniciar
-prender = str(input("Ingrese 'on' para iniciar: "))
+prender = str(input("ingrese 'on' para iniciar: "))
 #inicia la calculadora
 while prender == "on":
-    funcion = int(input("ingresar tipo de calculadora desea utilizar (1 clásica, 2 fracciones, 3 conversión, 4 para salir (off)): "))
+    funcion = int(input("ingresar tipo de calculadora desea utilizar (1 clasica, 2 fracciones, 3 conversion, 4 para salir (off)): "))
     #funcion calculadora clasica
     if funcion == 1:
         #lista donde se guardan los numeros ingresados
         lista_funcion_clasica = []
         #ingreso numeros
-        numeros_funcion_clasica = float(input("Ingresar numero (o 0 para terminar): "))
+        numeros_funcion_clasica = float(input("ingresar numero (o 0 para terminar): "))
         while numeros_funcion_clasica != 0:
             #se agregan los numeros a la lista
             lista_funcion_clasica.append(numeros_funcion_clasica)
-            numeros_funcion_clasica = float(input("Ingresar numero (o 0 para terminar): "))
+            numeros_funcion_clasica = float(input("ingresar numero (o 0 para terminar): "))
         #ingreso el tipo de cuenta
         cuenta = input("ingresar tipo de cuenta (SUM para suma, RES para resta, MUL para multiplicacion, DIV para division): ")
         #suma
@@ -24,8 +24,10 @@ while prender == "on":
             resultado_final_sum = str(input("ingresar = para imprimir resultado: "))
             if resultado_final_sum == "=":
                 print("total de suma es:", total_suma)
+            else:
+                print("error")
         #resta
-        if cuenta == "RES":
+        elif cuenta == "RES":
             if len(lista_funcion_clasica) > 0:
                 total_resta = lista_funcion_clasica[0]
                 for num in lista_funcion_clasica[1:]:
@@ -63,108 +65,87 @@ while prender == "on":
                 if resultado_final_division == "=":
                     print("total de division es:", total_division)
             else:
-                print("lista vacia")
+                print("error")
 
 #---------------------------------------------------->>----------------------------------------------------                
-                
+                #se ingresa 2
     elif funcion == 2:
-        print("fracciones")
-        def encontrar_mcd(a, b):
-            while b != 0:
-                a, b = b, a % b
-            return a
-
-        def simplificar(num, den):
-            if den == 0:
-                 #raise genera una excepción manualmente
-                raise ValueError("El denominador no puede ser cero.")
-            mcd = encontrar_mcd(num, den)
-            return num // mcd, den // mcd
-        # se crean listas para almacenar las fracciones y luego operar
-
-        def sumar(fracciones):
-    #  En cada iteración suma acumulando de los numeradores multiplicados por los denominadores comunes 
-    # y actualiza el denominador común multiplicándolo por el denominador de la fracción actual. 
-            num_suma = 0
-            den_comun = 1
-            for fraccion in fracciones:
-                num_suma = num_suma * fraccion[1] + fraccion[0] * den_comun
-                den_comun *= fraccion[1]
-            return simplificar(num_suma, den_comun)
-
-        def restar(fracciones):
-            num_resta = 0
-            den_comun = 1
-
-            for fraccion in fracciones:
-                num_resta = num_resta * fraccion[1] - fraccion[0] * den_comun
-                den_comun *= fraccion[1]
-
-            return simplificar(num_resta, den_comun)
-
-        def multiplicar(fracciones):
-            num_prod = 1
-            den_prod = 1
-            for fraccion in fracciones:
-                num_prod *= fraccion[0]
-                den_prod *= fraccion[1]
-
-            return simplificar(num_prod, den_prod)
-
-        def dividir(fracciones):
-            num_div = fracciones[0][0] * fracciones[1][1]
-            den_div = fracciones[0][1] * fracciones[1][0]
-
-            return simplificar(num_div, den_div)
-
-        def ingresarFraccion():
-            numerador = int(input("Ingrese el numerador de la fracción: "))
-            denominador = int(input("Ingrese el denominador de la fracción: "))
-            return numerador, denominador
-
-        def opciones(opcion):
-            fracciones = []
-        # acá se inicia la lista vacia  de fracciones
-            while opcion != "salir":
-                if opcion == "suma" or opcion == "resta" or opcion == "multiplicacion" or opcion == "division":
-                    # verifica que se ingrese una opción válida
-                    try:
-                        # acá manejamos las expeciones, si todo es correcto se llama
-                        # a ingresar fracción para que el usuario ingrese un valor y se guarda en fracción
-                        fraccion = ingresarFraccion()
-                        # el metodo append ingresa una fraccion dentro de la lista vacia
-                        fracciones.append(fraccion)
-                         # si el valor es invalido se muestra un error, convierte error en un bloque de texto
-                    except ValueError as error:
-                        print(str(error))
-                elif opcion == "salir":
-                    break
-                else:
-                    print("Opción inválida. Intente nuevamente.")
-                    # realiza las operaciones y recibe la lista de fracciones para operar
-                if opcion == "suma":
-                    resultado = sumar(fracciones)
-                    print(f"Resultado de la suma y/o la simplificación es: {resultado[0]}/{resultado[1]}")
-                elif opcion == "resta":
-                    resultado = restar(fracciones)
-                    print(f"Resultado de la resta y/o la simplificación es: {resultado[0]}/{resultado[1]}")
-                elif opcion == "multiplicacion":
-                    resultado = multiplicar(fracciones)
-                    print(f"Resultado de la multiplicación y/o la simplificación es: {resultado[0]}/{resultado[1]}")
-                elif opcion == "division":
-                    resultado = dividir(fracciones)
-                    print(f"Resultado de la división y/o la simplificación es: {resultado[0]}/{resultado[1]}")
-
-                opcion = input("Ingrese una operación (suma, resta, multiplicacion, division) o 'salir' para terminar: ")
-
-        opcion = input("Ingrese una operación (suma, resta, multiplicacion, division) o 'salir' para terminar: ")
-        opciones(opcion)
-
-
+        #ingresa primer numerador
+        numerador = int(input("ingrese numerador: "))
+        #ingresa primer denominador
+        denominador = int(input("ingrese denominador: "))
+        #error si denominador es igual a 0
+        if denominador == 0:
+            print("Ingrese un denominador distinto de 0")
+        #ingresa segundo numerador
+        numerador_2 = int(input("ingrese numerador de la segunda fraccion: "))
+        #ingresa segundo denominador
+        denominador_2 = int(input("ingrese denominador de la segunda fraccion: "))
+        #error si denominador es igual a 0
+        if denominador_2 == 0:
+            print("Ingrese un denominador distinto de 0")
+        #tipo de cuenta que se ingresa
+        cuenta = input("ingresar tipo de cuenta (SUM para suma, RES para resta, MUL para multiplicacion, DIV para division): ")
+        #suma
+        if cuenta == "SUM":
+            #se busca denominador comun
+            den_comun = denominador * denominador_2
+            print("El denominador común sería:", den_comun)
+            #se busca el primer numerador
+            num_comun_1 = numerador * denominador_2
+            print("El primer numerador es:", num_comun_1)
+            #se busca el segundo numerador
+            num_comun_2 = numerador_2 * denominador
+            print("El segundo numerador es:", num_comun_2)
+            #se suman los dos numeradores
+            suma_num = num_comun_1 + num_comun_2
+            #ingresar = para imprimir el resultado final
+            resultado_final = input("ingrese = para resultado final: ")
+            if resultado_final == "=":
+                #imprime resultado final
+                print("El resultado es:",suma_num,"/",den_comun)
+        #resta
+        elif cuenta == "RES":
+            #se busca denominador comun
+            den_comun = denominador * denominador_2
+            print("El denominador común sería:", den_comun)
+            #se busca el primer numerador
+            num_comun_1 = numerador * denominador_2
+            print("El primer numerador es:", num_comun_1)
+            #se busca el segundo numerador
+            num_comun_2 = numerador_2 * denominador
+            print("El segundo numerador es:", num_comun_2)
+            #la resta de los numeradores
+            resta_num = num_comun_1 - num_comun_2
+            #ingresar = para imprimir el resultado final
+            resultado_final = input("ingrese = para resultado final: ")
+            if resultado_final == "=":
+                #imprime resultado final
+                print("El resultado es:",resta_num,"/",den_comun)
+        #multiplicacion
+        elif cuenta == "MUL":
+            #numeroador
+            numerador_final = numerador * numerador_2
+            #denominador
+            denominador_final = denominador * denominador_2
+            #ingresar = para imprimir el resultado final
+            resultado_final = input("ingrese = para resultado final: ")
+            if resultado_final == "=":
+                #imprime resultado final
+                print("el resultado seria: " ,numerador_final, "/", denominador_final)
+        #division
+        elif cuenta == "DIV":
+            #numerador
+            numerador_division = numerador * denominador_2
+            #denominador
+            denominador_division = numerador_2 * denominador
+            #ingresar = para imprimir el resultado final
+            resultado_final = input("ingrese = para resultado final: ")
+            if resultado_final == "=":
+                #imprime resultado final
+                print("el resultado es: " ,numerador_division , "/" , denominador_division)
 
 #----------------------------------------->---------------------------------
-
-        
 
     # funcion 3 conversion
     elif funcion == 3:
@@ -173,7 +154,7 @@ while prender == "on":
             numero = input("ingrese numero: ")
             #error si el numero ingresado es mayor a 4 digitos
             if len(numero) > 4:
-                print("numero ingresado no es válido.")
+                print("numero ingresado no es valido.")
             else:
                 numero = int(numero)
                 digitos_binarios = []  # Lista para los dígitos binarios
@@ -189,14 +170,13 @@ while prender == "on":
                 if resultado_bi == "=":
                     print(f"numero en binario es: {resultado}")
                 
-
     #--------------------------><----------------------------------------
         elif conversion == "HEX":
             numero = input("Ingrese nnmero: ")
 
     #error si el numero ingresado es mayor a 4 digitos
             if len(numero) > 4:
-                print("numero ingresado no valido.")
+                print("numero ingresado no valido")
             else:
                 numero = int(numero)
                 hexadecimales = []  # lista donde se almacenan los residuos 
@@ -219,14 +199,13 @@ while prender == "on":
                 if resultado_hex == "=":
                     print(f"numero en hexadecimal es: {resultado}")
                 
-
     #---------------------------><---------------------------------------
         elif conversion == "OCT":
             numero = input("ingrese numero decimal: ")
             numero_octal = ""
             #error si el numero ingresado es mayor a 4 digitos
             if len(numero) > 4:
-                print("numero ingresado no es válido.")
+                print("numero ingresado no es valido")
             else:
                 numero = int(numero)
                 while numero > 0:
