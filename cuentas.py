@@ -48,75 +48,62 @@ while prender == "on":
     elif funcion == 3:
         conversion = str(input("ingrese el tipo de conversion que desea (BI para binario, HEX para hexadecimal, OCT para octal): "))
         if conversion == "BI":
-            numero = input("ingrese numero: ")
-            #error si el numero ingresado es mayor a 4 digitos
-            if len(numero) > 4:
-                print("El número ingresado no es válido.")
-            else:
-                numero = int(numero)
-                digitos_binarios = []  # Lista para los dígitos binarios
-
-                while numero > 0:
-                    digitos_binarios.append(str(numero % 2))
-                    numero = numero // 2
-
-                # aca se unen los binarios y se imprime al reves
-                resultado = ''.join(reversed(digitos_binarios))
-
-                resultado_bi = input("ingrese = para finalizar: ")
-                if resultado_bi == "=":
-                    print(f"El número en binario es: {resultado}")
-                break
-
+                numero = int(input("Ingrese un número decimal: "))
+                # error si el número ingresado es menor a 0
+                if numero < 0:
+                    print("Error: número inválido.")
+                # error si el número ingresado es mayor a 4 dígitos
+                elif numero > 9999:
+                    print("Número ingresado no válido.")
+                else:
+                    digitos_binarios = []  # Lista para los dígitos binarios
+                    while numero > 0:
+                        digitos_binarios.append(str(numero % 2))
+                        numero = numero // 2
+                    # aca se unen los binarios y se imprime al reves
+                    resultado = ''.join(reversed(digitos_binarios))
+                    resultado_bi = input("Ingrese = para finalizar: ")
+                    if resultado_bi == "=":
+                        print(f"El número en binario es: {resultado}")
     #--------------------------><----------------------------------------
         elif conversion == "HEX":
-            numero = input("Ingrese nnmero: ")
-
+            numero = int(input("Ingrese número: "))
     #error si el numero ingresado es mayor a 4 digitos
-            if len(numero) > 4:
+            while numero > 9999 or numero < 0:
                 print("numero ingresado no valido.")
-            else:
-                numero = int(numero)
-                hexadecimales = []  # lista donde se almacenan los residuos 
-
+            numero = int(numero)
+            hexadecimales = []  # lista donde se almacenan los residuos 
                 # variables para guardar los residuos mayores a 9 y pasarlo a letra
-                letras = {10: 'A', 11: 'B', 12: 'C', 13: 'D', 14: 'E', 15: 'F'}
-
-                while numero > 0:
-                    residuo = numero % 16
-                    if residuo < 10:
-                        hexadecimales.append(str(residuo))
-                    else:
-                        dígito = letras[residuo]
-                        hexadecimales.append(dígito)
-                    numero = numero // 16
-
+            letras = {10: 'A', 11: 'B', 12: 'C', 13: 'D', 14: 'E', 15: 'F'}
+            while numero > 0:
+                residuo = numero % 16
+                if residuo < 10:
+                    hexadecimales.append(str(residuo))
+                else:
+                    dígito = letras[residuo]
+                    hexadecimales.append(dígito)
+                numero = numero // 16
                 #aca se unen los numeros hexadecimales y se imprimen al reves
-                resultado = ''.join(reversed(hexadecimales))
-                resultado_hex = input("ingrese = para finalizar: ")
-                if resultado_hex == "=":
-                    print(f"El número en hexadecimal es: {resultado}")
-                break
+            resultado = ''.join(reversed(hexadecimales))
+            resultado_hex = input("ingrese = para finalizar: ")
+            if resultado_hex == "=":
+                print(f"El número en hexadecimal es: {resultado}")
+            break
 
     #---------------------------><---------------------------------------
         elif conversion == "OCT":
-            numero = input("Ingrese un número decimal: ")
+            numero = int(input("Ingrese un número decimal: "))
             numero_octal = ""
-            #error si el numero ingresado es mayor a 4 digitos
-            if len(numero) > 4:
-                print("El número ingresado no es válido.")
-            else:
-                numero = int(numero)
-                while numero > 0:
-                    residuo = numero % 8
-                    numero_octal = str(residuo) + numero_octal
-                    numero = numero // 8
-            
-            resultado_oct = input("ingrese = para finalizar: ")
+            # Corrección: Verificar si el número ingresado tiene más de 4 dígitos o es menor a 0
+            while numero > 9999 or numero < 0:
+                numero = int(input("El número ingresado no es válido. Ingrese otro número decimal: "))
+            while numero > 0:
+                residuo = numero % 8    
+                numero_octal = str(residuo) + numero_octal
+                numero = numero // 8
+            resultado_oct = input("Ingrese = para finalizar: ")
             if resultado_oct == "=":
-                print(f"El número en octal es:", numero_octal)
-            break
-    
+                print("El número en octal es:", numero_octal)
     elif funcion == 4:
         print("apagado")
         break
