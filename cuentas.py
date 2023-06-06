@@ -188,6 +188,7 @@ while prender == "on":
                     residuo = numero % 16
                     if residuo < 10:
                         hexadecimales.append(str(residuo))
+                        
                     else:
                         dígito = letras[residuo]
                         hexadecimales.append(dígito)
@@ -213,9 +214,9 @@ while prender == "on":
                     numero_octal = str(residuo) + numero_octal
                     numero = numero // 8
             
-            resultado_oct = input("ingrese = para finalizar: ")
-            if resultado_oct == "=":
-                print(f"nmero en octal es:", numero_octal)
+                    resultado_oct = input("ingrese = para finalizar: ")
+                    if resultado_oct == "=":
+                        print(f"numero en octal es:", numero_octal)
             
     
     elif funcion == 4:
