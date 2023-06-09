@@ -48,7 +48,7 @@ def mul_clasica():
                 #imprime resultado final
         resultado_final_multiplicacion = str(input("ingresar = para imprimir resultado: "))
         if resultado_final_multiplicacion == "=":
-            print("total de multiplicación es:", total_multiplicacion)
+            print("total de multiplicacion es:", total_multiplicacion)
         else:
             print("lista vacia")
     lista_funcion_clasica.clear()
@@ -92,20 +92,20 @@ def cal_fracciones():
     denominador_2 = int(input("ingrese denominador de la segunda fraccion: "))
         #error si denominador es igual a 0
     if denominador_2 == 0:
-            print("Ingrese un denominador distinto de 0")
+            print("ingrese un denominador distinto de 0")
         #tipo de cuenta que se ingresa
     cuenta = input("ingresar tipo de cuenta (SUM para suma, RES para resta, MUL para multiplicacion, DIV para division): ")
         #suma
     if cuenta == "SUM":
             #se busca denominador comun
         den_comun = denominador * denominador_2
-        print("El denominador común sería:", den_comun)
+        print("el denominador comun seria:", den_comun)
             #se busca el primer numerador
         num_comun_1 = numerador * denominador_2
-        print("El primer numerador es:", num_comun_1)
+        print("el primer numerador es:", num_comun_1)
             #se busca el segundo numerador
         num_comun_2 = numerador_2 * denominador
-        print("El segundo numerador es:", num_comun_2)
+        print("el segundo numerador es:", num_comun_2)
             #se suman los dos numeradores
         suma_num = num_comun_1 + num_comun_2
         print("la cuenta quedaria tal que asi: " , num_comun_1, "+" , num_comun_2 , "sobre" , den_comun)
@@ -113,18 +113,18 @@ def cal_fracciones():
         resultado_final = input("ingrese = para resultado final: ")
         if resultado_final == "=":
                 #imprime resultado final
-                print("El resultado es:",suma_num,"/",den_comun)
+                print("el resultado es: ",suma_num,"/",den_comun)
         #resta
     elif cuenta == "RES":
             #se busca denominador comun
         den_comun = denominador * denominador_2
-        print("El denominador común sería:", den_comun)
+        print("el denominador comun seria:", den_comun)
             #se busca el primer numerador
         num_comun_1 = numerador * denominador_2
-        print("El primer numerador es:", num_comun_1)
+        print("el primer numerador es:", num_comun_1)
             #se busca el segundo numerador
         num_comun_2 = numerador_2 * denominador
-        print("El segundo numerador es:", num_comun_2)
+        print("el segundo numerador es:", num_comun_2)
             #la resta de los numeradores
         resta_num = num_comun_1 - num_comun_2
         print("la cuenta quedaria tal que asi: ", num_comun_1 , "-" , num_comun_2 , "sobre" , den_comun )
@@ -132,7 +132,7 @@ def cal_fracciones():
         resultado_final = input("ingrese = para resultado final: ")
         if resultado_final == "=":
                 #imprime resultado final
-            print("El resultado es:",resta_num,"/",den_comun)
+            print("el resultado es:",resta_num,"/",den_comun)
         #multiplicacion
     elif cuenta == "MUL":
             #numeroador
@@ -166,31 +166,31 @@ def cal_fracciones():
 #funcion para calculadora de conversion
 #funcion binaria
 def conv_bi():
-    numero = int(input("Ingrese un número decimal: "))
-    # error si el número ingresado es menor a 0
+    numero = int(input("Ingrese numero decimal: "))
+    # error si el numero ingresado es menor a 0
     if numero < 0:
-        print("Error: número inválido.")
-    # error si el número ingresado es mayor a 4 dígitos
+        print("error. numero invalido")
+    # error si el numero ingresado es mayor a 4 digitos
     elif numero > 9999:
-        print("Número ingresado no válido.")
+        print("error. numero invalido")
     else:
-        digitos_binarios = []  # Lista para los dígitos binarios
+        digitos_binarios = []  # Lista para los digitos binarios
         while numero > 0:
             digitos_binarios.append(str(numero % 2))
             numero = numero // 2
         # aca se unen los binarios y se imprime al reves
         resultado = ''.join(reversed(digitos_binarios))
-        resultado_bi = input("Ingrese = para finalizar: ")
+        resultado_bi = input("ingrese = para finalizar: ")
         if resultado_bi == "=":
-            print(f"El número en binario es: {resultado}")
+            print(f"numero en binario es: {resultado}")
 
 
 #funcion hexadecimal
 def conv_hex():
-    numero = int(input("Ingrese número: "))
+    numero = int(input("ingrese numero decimal: "))
 #error si el numero ingresado es mayor a 4 digitos
     while numero > 9999 or numero < 0:
-        print("numero ingresado no valido.")
+        print("numero ingresado no valido")
     numero = int(numero)
     hexadecimales = []  # lista donde se almacenan los residuos 
     # variables para guardar los residuos mayores a 9 y pasarlo a letra
@@ -200,28 +200,28 @@ def conv_hex():
         if residuo < 10:
             hexadecimales.append(str(residuo))
         else:
-            dígito = letras[residuo]
-            hexadecimales.append(dígito)
+            digito = letras[residuo]
+            hexadecimales.append(digito)
         numero = numero // 16
     #aca se unen los numeros hexadecimales y se imprimen al reves
     resultado = ''.join(reversed(hexadecimales))
     resultado_hex = input("ingrese = para finalizar: ")
     if resultado_hex == "=":
-        print(f"El número en hexadecimal es: {resultado}")
+        print(f"el numero en hexadecimal es: {resultado}")
 #funcion octal
 def conv_oct():
-    numero = int(input("Ingrese un número decimal: "))
+    numero = int(input("ingrese numero decimal: "))
     numero_octal = ""
-# Corrección: Verificar si el número ingresado tiene más de 4 dígitos o es menor a 0
+# error si el numero ingresado es mayor a 4 digitos
     while numero > 9999 or numero < 0:
-        numero = int(input("El número ingresado no es válido. Ingrese otro número decimal: "))
+        numero = int(input("numero ingresado no valido"))
     while numero > 0:
         residuo = numero % 8    
         numero_octal = str(residuo) + numero_octal
         numero = numero // 8
-    resultado_oct = input("Ingrese = para finalizar: ")
+    resultado_oct = input("ingrese = para finalizar: ")
     if resultado_oct == "=":
-        print("El número en octal es:", numero_octal)
+        print("el numero en octal es: ", numero_octal)
 
 
 
