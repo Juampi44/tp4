@@ -174,7 +174,7 @@ def conv_bi():
     elif numero > 9999:
         print("error. numero invalido")
     else:
-        digitos_binarios = []  # Lista para los digitos binarios
+        digitos_binarios = []  # lista para los digitos binarios
         while numero > 0:
             digitos_binarios.append(str(numero % 2))
             numero = numero // 2
