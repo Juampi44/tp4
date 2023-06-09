@@ -1,6 +1,8 @@
+#lista para funcion clasica
 lista_funcion_clasica = []
 #funcion calculadora clasica
 def fun_clasica():
+    #llamando a la lista que se definio antes
     global lista_funcion_clasica
         #ingreso numeros
     numeros_funcion_clasica = float(input("ingresar numero (o 0 para terminar): "))
@@ -11,9 +13,13 @@ def fun_clasica():
 
 #funcion suma de calculadora clasica
 def sum_clasica():
+    #llamando a la lista que se definio antes con los numeros ingresados previamente
     global lista_funcion_clasica
+    #variable a la que se le van a sumar los num de la lista
     total_suma = 0
+    #recorremos la lista
     for num in lista_funcion_clasica:
+        #numeros de la lista sumado al cero de la variable
         total_suma += num
             #imprime resultado final
     resultado_final_sum = str(input("ingresar = para imprimir resultado: "))
@@ -21,14 +27,20 @@ def sum_clasica():
         print("total de suma es:", total_suma)
     else:
         print("error")
+        #limpiar lista
     lista_funcion_clasica.clear()
 
 #funcion resta de calculadora clasica
 def res_clasica():
+    #llamando a la lista que se definio antes con los numeros ingresados previamente
     global lista_funcion_clasica
+    #verifica si la lista tiene numeros
     if len(lista_funcion_clasica) > 0:
+        #se asigna el primer elemento de la lista a la variable
         total_resta = lista_funcion_clasica[0]
+    #se recorre el segundo numero de la lista
     for num in lista_funcion_clasica[1:]:
+        #se hace la cuenta
         total_resta -= num
                 #imprime resultado final
     resultado_final_resta = str(input("ingresar = para imprimir resultado: "))
@@ -36,13 +48,18 @@ def res_clasica():
         print("total de resta es:", total_resta)
     else:
         print("lista vacia")
+        #limpiar lista
     lista_funcion_clasica.clear()
 
 #funcion multiplicacion de calculadora clasica
 def mul_clasica():
+    #llamando a la lista que se definio antes con los numeros ingresados previamente
     global lista_funcion_clasica
+    #verifica si la lista tiene numeros
     if len(lista_funcion_clasica) > 0:
+        #variable por la cual se van a multiplicar los numeros de la lista
         total_multiplicacion = 1
+        
         for num in lista_funcion_clasica:
             total_multiplicacion *= num
                 #imprime resultado final
@@ -51,10 +68,12 @@ def mul_clasica():
             print("total de multiplicacion es:", total_multiplicacion)
         else:
             print("lista vacia")
+            #limpiar lista
     lista_funcion_clasica.clear()
 
 #funcion division de calculadora clasica
 def div_clasica():
+    #llamando a la lista que se definio antes con los numeros ingresados previamente
     global lista_funcion_clasica
     if len(lista_funcion_clasica) > 0:
         total_division = lista_funcion_clasica[0]
@@ -70,6 +89,7 @@ def div_clasica():
             print("total de division es:", total_division)
         else:
             print("error")
+            #limpiar lista
         lista_funcion_clasica.clear()
 
 
@@ -278,7 +298,6 @@ while prender == "on":
 
 
 
-#GRACIAS A TODOS POR MIRAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!chau.
 print("""
 .............      ........           ........         .........          .           ........            .........
 .                  .      .          .        .        .                  .          .        .           .
