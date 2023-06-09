@@ -222,7 +222,11 @@ def conv_oct():
     resultado_oct = input("Ingrese = para finalizar: ")
     if resultado_oct == "=":
         print("El número en octal es:", numero_octal)
-                    
+
+
+
+
+#<------------------INICIA CALCULADORA------------------------------->                    
 
 #variable para iniciar
 prender = str(input("ingrese 'on' para iniciar: "))
