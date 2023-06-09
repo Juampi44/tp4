@@ -234,7 +234,7 @@ while prender != "on":
     prender = str(input("ingrese 'on' para iniciar: "))
 #inicia la calculadora
 while prender == "on":
-    funcion = int(input("ingresar tipo de calculadora desea utilizar (1 clasica, 2 fracciones, 3 conversion, 4 para salir (off)): "))
+    funcion = int(input("ingresar tipo de calculadora desea utilizar:\n1 clasica\n2 fracciones\n3 conversion\n4 para salir (off): "))
     
     #selecciona calculadora clasica
     if funcion == 1:
