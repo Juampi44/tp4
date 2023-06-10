@@ -75,19 +75,26 @@ def mul_clasica():
 def div_clasica():
     #llamando a la lista que se definio antes con los numeros ingresados previamente
     global lista_funcion_clasica
+    #si la lista tiene mas de cero numeros
     if len(lista_funcion_clasica) > 0:
+        #le asigna una variable al primer numero de la lista
         total_division = lista_funcion_clasica[0]
+        #itera sobre el segundo numero de la lista
         for num in lista_funcion_clasica[1:]:
+            #revisa que num sea distinto a cero y hace la division
             if num != 0:
                 total_division /= num
+            #esto es por si se intenta dividir por cero
             else:
                 print("No se puede dividir por cero.")
                 break
-
+        #variable para imprimir resultado
         resultado_final_division = str(input("ingresar = para imprimir resultado: "))
+        #si variable es =, imprime resultado
         if resultado_final_division == "=":
             print("total de division es:", total_division)
         else:
+            #si variable no es = entonces da error
             print("error")
             #limpiar lista
         lista_funcion_clasica.clear()
@@ -194,7 +201,9 @@ def conv_bi():
     elif numero > 9999:
         print("error. numero invalido")
     else:
-        digitos_binarios = []  # lista para los digitos binarios
+        #lista para los digitos binarios
+        digitos_binarios = []
+        #mientras numero sea mayor a cero hace la cuenta y lo manda a la lista
         while numero > 0:
             digitos_binarios.append(str(numero % 2))
             numero = numero // 2
@@ -212,8 +221,9 @@ def conv_hex():
     while numero > 9999 or numero < 0:
         print("numero ingresado no valido")
     numero = int(numero)
-    hexadecimales = []  # lista donde se almacenan los residuos 
-    # variables para guardar los residuos mayores a 9 y pasarlo a letra
+    #lista donde se guardan los residuos 
+    hexadecimales = [] 
+    #variables para guardar los residuos mayores a 9 y pasarlo a letra
     letras = {10: 'A', 11: 'B', 12: 'C', 13: 'D', 14: 'E', 15: 'F'}
     while numero > 0:
         residuo = numero % 16
